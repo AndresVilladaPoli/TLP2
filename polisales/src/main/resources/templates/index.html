@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="base :: content">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página Principal - Blog</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <title th:text="${title}">Página Principal - Blog</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
+    <!-- Banner con carrusel de imágenes -->
     <header>
         <div class="banner">
-            <!-- Espacio para texto e imágenes en el futuro -->
-            <h1>Bienvenido al Blog</h1>
+            <div class="carousel">
+                <!-- Thymeleaf iterará sobre la lista de imágenes que viene del controlador -->
+                <img th:each="image : ${carouselImages}" 
+                     th:src="@{/images/{image}(image=${image})}" 
+                     class="carousel-image" 
+                     alt="Imagen de carrusel">
+            </div>
+            <h1>Bienvenido a POLIsales</h1>
         </div>
-        
+
         <!-- Navegación -->
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{/publicaciones}">Publicaciones</a></li>
-                <li><a th:href="@{/crear-publicacion}">Crear Publicación</a></li>
-                <li><a th:href="@{/mi-perfil}">Mi Perfil</a></li>
+                <li><a th:href="@{/}">Publicaciones</a></li>
+                <li><a th:href="@{/crear}">Crear Publicación</a></li>
+                <li><a th:href="@{/miPerfil}">Mi Perfil</a></li>
+                <li><a th:href="@{/logout}">Cerrar sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -25,8 +33,27 @@
     <main>
         <div class="content">
             <p>Aquí se mostrarán las publicaciones recientes.</p>
-            <!-- Este será el lugar para las publicaciones -->
+            <!-- Aquí irá el contenido dinámico de las publicaciones -->
         </div>
     </main>
+
+    <!-- Script para el carrusel de imágenes -->
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll(".carousel-image");
+        const totalImages = images.length;
+
+        function showNextImage() {
+            images[currentImageIndex].style.display = "none"; // Oculta la imagen actual
+            currentImageIndex = (currentImageIndex + 1) % totalImages; // Cambia al siguiente índice
+            images[currentImageIndex].style.display = "block"; // Muestra la nueva imagen
+        }
+
+        // Muestra solo la primera imagen al cargar
+        images.forEach((img, index) => img.style.display = index === 0 ? "block" : "none");
+
+        // Cambia de imagen cada 3 segundos
+        setInterval(showNextImage, 3000);
+    </script>
 </body>
 </html>
