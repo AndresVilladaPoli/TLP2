@@ -30,7 +30,7 @@ public class PublicacionService {
         publicacionRepository.deleteById(id);
     }
 
-    // Método personalizado para buscar publicaciones por categoría
+    // buscar publicaciones por categoría
     public List<Publicacion> findByCategoriaId(Long categoriaId) {
         return publicacionRepository.findByCategoriaId(categoriaId);
     }

@@ -10,7 +10,6 @@
     <header>
         <div class="banner">
             <div class="carousel">
-                <!-- Thymeleaf iterará sobre la lista de imágenes que viene del controlador -->
                 <img th:each="image : ${carouselImages}" 
                      th:src="@{/images/{image}(image=${image})}" 
                      class="carousel-image" 
@@ -33,7 +32,7 @@
     <main>
         <div class="content">
             <p>Aquí se mostrarán las publicaciones recientes.</p>
-            <!-- Aquí irá el contenido dinámico de las publicaciones -->
+            <!-- Contenido -->
         </div>
     </main>
 

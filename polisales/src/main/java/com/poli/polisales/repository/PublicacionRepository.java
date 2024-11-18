@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PublicacionRepository extends JpaRepository<Publicacion, Long> {
-    // Ejemplo de método personalizado para encontrar publicaciones por categoría
+    
     List<Publicacion> findByCategoriaId(Long categoriaId);
 }
 

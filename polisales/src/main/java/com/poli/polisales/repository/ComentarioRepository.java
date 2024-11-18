@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ComentarioRepository extends JpaRepository<Comentario, Long> {
-    // Método personalizado para encontrar comentarios por publicación
+    
     List<Comentario> findByPublicacionId(Long publicacionId);
 }
 

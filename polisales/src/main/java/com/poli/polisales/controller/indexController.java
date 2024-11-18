@@ -12,14 +12,14 @@ public class indexController {
 
     @GetMapping("/")
     public String home(Model model) {
-        // Añadimos el título
+        // título
         model.addAttribute("title", "POLIsales");
 
-        // Añadimos una lista de imágenes para el carrusel
+        // lista de imágenes para el carrusel
         List<String> carouselImages = Arrays.asList("img1.jpg", "img2.jpg", "img3.jpg");
         model.addAttribute("carouselImages", carouselImages);
 
-        return "index";  // Thymeleaf buscará un archivo "index.html" en la carpeta "templates"
+        return "index";  
     }
 
     /*@GetMapping("/publicaciones")

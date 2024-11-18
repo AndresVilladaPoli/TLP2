@@ -34,7 +34,7 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
     
-    // Obtener un usuario por email (método personalizado)
+    // Obtener un usuario por email
     public Optional<Usuario> findByEmail(String email) {
         return Optional.ofNullable(usuarioRepository.findByEmail(email));
     }

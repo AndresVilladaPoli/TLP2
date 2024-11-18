@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ImagenRepository extends JpaRepository<Imagen, Long> {
-    // Método personalizado para encontrar imágenes por publicación
+    
     List<Imagen> findByPublicacionId(Long publicacionId);
 }
 
