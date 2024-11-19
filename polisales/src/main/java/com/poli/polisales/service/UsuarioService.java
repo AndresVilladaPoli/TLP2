@@ -3,6 +3,7 @@ package com.poli.polisales.service;
 import com.poli.polisales.model.Usuario;
 import com.poli.polisales.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +12,14 @@ import java.util.Optional;
 @Service
 public class UsuarioService {
 
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     // Obtener todos los usuarios
     public List<Usuario> findAll() {
@@ -33,10 +40,30 @@ public class UsuarioService {
     public void deleteById(Long id) {
         usuarioRepository.deleteById(id);
     }
-    
+
     // Obtener un usuario por email
     public Optional<Usuario> findByEmail(String email) {
         return Optional.ofNullable(usuarioRepository.findByEmail(email));
     }
+
+    // Registrar un nuevo usuario
+    public Usuario registerUser(String username, String password, String email) {
+        // Verificar si el usuario o email ya existen
+        if (usuarioRepository.findByUsername(username).isPresent()) {
+            throw new IllegalArgumentException("El nombre de usuario ya existe");
+        }
+
+        if (usuarioRepository.findByEmail(email) != null) {
+            throw new IllegalArgumentException("El correo electrónico ya está registrado");
+        }
+
+        // Crear y guardar el usuario con la contraseña encriptada
+        Usuario usuario = new Usuario();
+        usuario.setNombre(username);
+        usuario.setContrasena(passwordEncoder.encode(password));
+        usuario.setEmail(email);
+        return usuarioRepository.save(usuario);
+    }
 }
+
 
