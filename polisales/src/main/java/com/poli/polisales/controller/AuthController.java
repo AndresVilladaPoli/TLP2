@@ -8,6 +8,6 @@ public class AuthController {
 
     @GetMapping("/login")
     public String login() {
-        return "login"; // Nombre del archivo Thymeleaf: login.html
+        return "login"; 
     }
 }

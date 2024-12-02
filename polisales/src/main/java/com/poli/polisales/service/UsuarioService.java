@@ -47,9 +47,9 @@ public class UsuarioService {
     }
 
     // Registrar un nuevo usuario
-    public Usuario registerUser(String username, String password, String email) {
+    public Usuario registerUser(String nombre, String conteasena, String email) {
         // Verificar si el usuario o email ya existen
-        if (usuarioRepository.findByUsername(username).isPresent()) {
+        if (usuarioRepository.findByNombre(nombre).isPresent()) {
             throw new IllegalArgumentException("El nombre de usuario ya existe");
         }
 
@@ -59,8 +59,8 @@ public class UsuarioService {
 
         // Crear y guardar el usuario con la contraseña encriptada
         Usuario usuario = new Usuario();
-        usuario.setNombre(username);
-        usuario.setContrasena(passwordEncoder.encode(password));
+        usuario.setNombre(nombre);
+        usuario.setContrasena(passwordEncoder.encode(conteasena));
         usuario.setEmail(email);
         return usuarioRepository.save(usuario);
     }
