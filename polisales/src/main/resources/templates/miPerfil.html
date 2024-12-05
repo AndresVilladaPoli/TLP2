@@ -7,15 +7,22 @@
 </head>
 <body>
     <header>
+        <!-- Banner con carrusel de imágenes -->
         <div class="banner">
-            <h1>Mi Perfil</h1>
+            <div class="carousel">
+                <img th:each="image : ${carouselImages}" 
+                     th:src="@{/images/{image}(image=${image})}" 
+                     class="carousel-image" 
+                     alt="Imagen de carrusel">
+            </div>
+            <h1 th:text="${title}">Mi Perfil</h1>
         </div>
 
         <!-- Navegación -->
         <nav class="navbar">
             <ul>
                 <li><a th:href="@{/}">Publicaciones</a></li>
-                <li><a th:href="@{/misPub}">Mis Publicaciones</a></li>
+                <li><a th:href="@{/}">Mis Publicaciones</a></li>
                 <li><a th:href="@{/crear}">Crear Publicación</a></li>
                 <li><a th:href="@{/miPerfil}">Mi Perfil</a></li>
                 <li><a th:href="@{/logout}">Cerrar sesión</a></li>
@@ -52,6 +59,23 @@
         </div>
     </main>
 
+    <!-- Script para el carrusel de imágenes -->
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll(".carousel-image");
+        const totalImages = images.length;
+
+        function showNextImage() {
+            images[currentImageIndex].style.display = "none"; // Oculta la imagen actual
+            currentImageIndex = (currentImageIndex + 1) % totalImages; // Cambia al siguiente índice
+            images[currentImageIndex].style.display = "block"; // Muestra la nueva imagen
+        }
+
+        // Muestra solo la primera imagen al cargar
+        images.forEach((img, index) => img.style.display = index === 0 ? "block" : "none");
+
+        // Cambia de imagen cada 3 segundos
+        setInterval(showNextImage, 3000);
+    </script>
 </body>
 </html>
-

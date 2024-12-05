@@ -26,7 +26,7 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    // Obtener un usuario por ID
+
     public Optional<Usuario> findById(Long id) {
         return usuarioRepository.findById(id);
     }
@@ -36,12 +36,10 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    // Eliminar un usuario por ID
     public void deleteById(Long id) {
         usuarioRepository.deleteById(id);
     }
 
-    // Obtener un usuario por email
     public Optional<Usuario> findByEmail(String email) {
         return Optional.ofNullable(usuarioRepository.findByEmail(email));
     }

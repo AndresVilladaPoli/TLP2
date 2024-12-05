@@ -18,14 +18,14 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    // Obtener todos los usuarios (JSON)
+    // Obtener todos los usuarios con JSON
     @GetMapping
     @ResponseBody
     public List<Usuario> getAllUsuarios() {
         return usuarioService.findAll();
     }
 
-    // Obtener un usuario por ID (JSON)
+    // Obtener un usuario por ID JSON
     @GetMapping("/{id}")
     @ResponseBody
     public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
@@ -34,7 +34,7 @@ public class UsuarioController {
                       .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Crear un nuevo usuario (JSON)
+    // Crear un nuevo usuario JSON
     @PostMapping
     @ResponseBody
     public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario) {
@@ -42,7 +42,7 @@ public class UsuarioController {
         return new ResponseEntity<>(savedUsuario, HttpStatus.CREATED);
     }
 
-    // Actualizar un usuario existente (JSON)
+    // Actualizar un usuario existente JSON
     @PutMapping("/{id}")
     @ResponseBody
     public ResponseEntity<Usuario> updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
@@ -54,7 +54,7 @@ public class UsuarioController {
         return ResponseEntity.ok(updatedUsuario);
     }
 
-    // Eliminar un usuario (JSON)
+    // Eliminar un usuario JSON
     @DeleteMapping("/{id}")
     @ResponseBody
     public ResponseEntity<Void> deleteUsuario(@PathVariable Long id) {
@@ -71,7 +71,7 @@ public class UsuarioController {
         if (error != null) {
             model.addAttribute("error", error);
         }
-        return "registro"; // Renderiza la vista `registro.html`
+        return "registro";
     }
 
     // Procesa el formulario de registro

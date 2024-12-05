@@ -12,32 +12,39 @@ public class indexController {
 
     @GetMapping("/")
     public String home(Model model) {
-        // título
+        // Título
         model.addAttribute("title", "POLIsales");
 
-        // lista de imágenes para el carrusel
+        // Lista de imágenes para el carrusel
         List<String> carouselImages = Arrays.asList("img1.jpg", "img2.jpg", "img3.jpg");
         model.addAttribute("carouselImages", carouselImages);
 
         return "index";  
     }
 
-    /*@GetMapping("/publicaciones")
-    public String publicaciones(Model model) {
-        model.addAttribute("title", "Publicaciones");
-        return "index";
-    }*/
-
     @GetMapping("/crear")
     public String crearPublicacion(Model model) {
+        // Título
         model.addAttribute("title", "Crear Publicación");
+
+        // Lista de imágenes para el carrusel
+        List<String> carouselImages = Arrays.asList("img1.jpg", "img2.jpg", "img3.jpg");
+        model.addAttribute("carouselImages", carouselImages);
+
         return "crearPublicacion";
     }
 
     @GetMapping("/miPerfil")
     public String miPerfil(Model model) {
+        // Título
         model.addAttribute("title", "Mi Perfil");
+
+        // Lista de imágenes para el carrusel
+        List<String> carouselImages = Arrays.asList("img1.jpg", "img2.jpg", "img3.jpg");
+        model.addAttribute("carouselImages", carouselImages);
+
         return "miPerfil";
     }
 }
+
 
