@@ -2,7 +2,6 @@ package com.poli.polisales.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 public class Publicacion {
@@ -13,7 +12,11 @@ public class Publicacion {
 
     private String titulo;
     private String contenido;
+    private String categoria; 
+    private String imagen; // Ruta o nombre del archivo como texto simple
     private LocalDateTime fechaPublicacion;
+
+    // Getters y Setters
 
     public Long getId() {
         return id;
@@ -39,6 +42,22 @@ public class Publicacion {
         this.contenido = contenido;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public LocalDateTime getFechaPublicacion() {
         return fechaPublicacion;
     }
@@ -46,20 +65,4 @@ public class Publicacion {
     public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
-
-    @OneToMany(mappedBy = "publicacion")
-    private List<Imagen> imagenes;
-
-    @OneToMany(mappedBy = "publicacion")
-    private List<Comentario> comentarios;
-
 }
-

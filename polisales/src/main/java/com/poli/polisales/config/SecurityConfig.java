@@ -22,7 +22,7 @@ public class SecurityConfig {
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
-        // Aquí defines los usuarios en memoria
+        // usuarios en memoria
         UserDetails user = User.builder()
             .username("admin")
             .password(passwordEncoder.encode("admin123"))
@@ -54,7 +54,7 @@ public class SecurityConfig {
             .anyRequest().authenticated()
         )
         .formLogin(form -> form
-            .loginPage("/login")  // Especifica la página de login personalizada
+            .loginPage("/login")  // login personalizado
             .defaultSuccessUrl("/", true)  // Página a redirigir tras login exitoso
             .permitAll()
         )

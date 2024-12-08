@@ -30,8 +30,4 @@ public class PublicacionService {
         publicacionRepository.deleteById(id);
     }
 
-    // buscar publicaciones por categoría
-    public List<Publicacion> findByCategoriaId(Long categoriaId) {
-        return publicacionRepository.findByCategoriaId(categoriaId);
-    }
 }

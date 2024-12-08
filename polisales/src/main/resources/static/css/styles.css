@@ -313,7 +313,7 @@ button.btn {
 /* Estilos Para el Login*/
 
 .login-page {
-    background-color: #1c6b44; /* Fondo verde oscuro */
+    background-color: #1c6b44;
     color: white;
     min-height: 100vh;
     display: flex;
@@ -332,10 +332,10 @@ button.btn {
 }
 
 .login-header h1 {
-    font-size: 4em; /* Tamaño grande */
+    font-size: 4em; 
     font-weight: bold;
     margin: 0;
-    color: white; /* Texto blanco */
+    color: white;
     text-transform: uppercase; /* Texto en mayúsculas */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
     letter-spacing: 2px; /* Espaciado entre letras */
@@ -353,11 +353,11 @@ button.btn {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    border: 1px solid #cedad3; /* Color gris suave */
+    border: 1px solid #cedad3; 
     border-radius: 10px;
-    background-color: white; /* Fondo blanco para contraste */
+    background-color: white; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #1c6b44; /* Texto verde */
+    color: #1c6b44; 
 }
 
 .login-container h2 {
@@ -398,7 +398,7 @@ button.btn {
 }
 
 .login-container button:hover {
-    background-color: #e1be10; /* Amarillo para resaltar */
+    background-color: #e1be10; 
     color: #1c6b44;
 }
 

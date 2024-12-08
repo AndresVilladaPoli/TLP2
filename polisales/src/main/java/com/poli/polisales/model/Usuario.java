@@ -1,7 +1,7 @@
 package com.poli.polisales.model;
 
 import jakarta.persistence.*;
-import java.util.List;
+//import java.util.List;
 
 @Entity
 public class Usuario {
@@ -52,11 +52,6 @@ public class Usuario {
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Publicacion> publicaciones;
-
-    @OneToMany(mappedBy = "usuario")
-    private List<Comentario> comentarios;
 
 }
 

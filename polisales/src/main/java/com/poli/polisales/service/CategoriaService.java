@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+//import java.util.Optional;
 
 @Service
 public class CategoriaService {
@@ -18,8 +18,9 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
-    public Optional<Categoria> findById(Long id) {
-        return categoriaRepository.findById(id);
+    public Categoria findById(Long id) {
+        return categoriaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
     }
 
     public Categoria save(Categoria categoria) {
