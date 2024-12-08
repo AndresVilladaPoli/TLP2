@@ -224,44 +224,149 @@ h2 {
 }
 
 /* Estilos adicionales para la página Crear Publicación */
-
-.content p {
-    font-size: 1.2em;
-    color: var(--dark-green);
-    text-align: center;
-    margin-top: 30px;
+.content {
+    background-color: var(--background-light);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+h2 {
+    text-align: center;
+    color: var(--primary-green);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.publication-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid var(--secondary-gray);
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input[type="file"] {
+    padding: 5px;
+    font-size: 1em;
+    color: var(--dark-green);
+}
+
+button.btn {
+    align-self: center;
+    font-size: 1.2em;
+    padding: 10px 30px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button.btn {
+        font-size: 1em;
+        padding: 8px 20px;
+    }
+}
+
 
 /* Estilos Para el Login*/
 
-/* General - Centrar contenedor */
+.login-page {
+    background-color: #1c6b44; /* Fondo verde oscuro */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.login-header {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    background-color: #1c6b44;
+}
+
+.login-header h1 {
+    font-size: 4em; /* Tamaño grande */
+    font-weight: bold;
+    margin: 0;
+    color: white; /* Texto blanco */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
 .login-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f9f9f9; /* Fondo claro */
+    width: 100%;
+    padding: 20px;
 }
-
-/* Estilo del contenedor */
 
 .login-container {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    border: 1px solid var(--primary-green);
+    border: 1px solid #cedad3; /* Color gris suave */
     border-radius: 10px;
-    background-color: white;
+    background-color: white; /* Fondo blanco para contraste */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #1c6b44; /* Texto verde */
 }
 
-.login-container h1 {
+.login-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: var(--primary-green);
+    color: #1c6b44; /* Verde oscuro */
 }
 
-.form-group {
+.login-container .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -270,41 +375,42 @@ h2 {
 .login-container label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: var(--dark-green);
+    color: #1c6b44;
 }
 
 .login-container input {
     padding: 10px;
-    border: 1px solid var(--secondary-gray);
+    border: 1px solid #cedad3;
     border-radius: 5px;
     font-size: 1em;
 }
 
 .login-container button {
     width: 100%;
-    background-color: var(--primary-green);
+    background-color: #1c6b44;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .login-container button:hover {
-    background-color: var(--highlight-yellow);
-    color: var(--dark-green);
+    background-color: #e1be10; /* Amarillo para resaltar */
+    color: #1c6b44;
 }
 
-/* Texto de registro */
+/*Texto de registro*/
 .register-text {
     text-align: center;
     margin-top: 15px;
-    font-size: 0.9em;
+    color: #1c6b44;
 }
 
 .register-text a {
-    color: var(--primary-green);
+    color: #e1be10;
     text-decoration: none;
     font-weight: bold;
 }
@@ -312,6 +418,8 @@ h2 {
 .register-text a:hover {
     text-decoration: underline;
 }
+
+
 
 /* Estilos Para el Registro */
 
