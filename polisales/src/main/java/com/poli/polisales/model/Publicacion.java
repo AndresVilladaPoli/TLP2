@@ -16,7 +16,6 @@ public class Publicacion {
     private String imagen; // Ruta o nombre del archivo como texto simple
     private LocalDateTime fechaPublicacion;
 
-    // Getters y Setters
 
     public Long getId() {
         return id;

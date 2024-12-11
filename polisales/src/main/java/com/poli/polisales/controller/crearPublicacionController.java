@@ -54,9 +54,8 @@ public class crearPublicacionController {
 
             // Manejar la imagen subida (opcional)
             if (imagen != null && !imagen.isEmpty()) {
-                String imagenUrl = guardarImagen(imagen); // Implementar método de guardado
-                // Puedes guardar la URL de la imagen en la entidad si es necesario
-                // publicacion.setImagenUrl(imagenUrl);
+                String imagenUrl = guardarImagen(imagen);
+                publicacion.setImagen(imagenUrl);
             }
 
             // Guardar la publicación en la base de datos
