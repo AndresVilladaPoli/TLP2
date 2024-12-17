@@ -53,11 +53,8 @@
                     <!-- Sección de Comentarios -->
                     <div class="comentarios-section" schema:CommentAction>
                         <h4>Agregar Comentario</h4>
-                        <!-- Input para comentario -->
                         <input type="text" class="comentario-input" placeholder="Escribe tu comentario aquí..." />
-                        <!-- Botón para agregar comentario -->
                         <button class="btn btn-primary" onclick="agregarComentario(this)">Agregar Comentario</button>
-                        
                         <!-- Lista de comentarios -->
                         <div class="comentarios-list" schema:userInteractionCount>
                             <h4>Comentarios:</h4>
@@ -69,7 +66,7 @@
         </div>
     </main>
 
-    <!-- Script para manejar los comentarios -->
+    <!-- Manejo de los comentarios sin guardar en BD -->
     <script>
         function agregarComentario(button) {
             const comentarioInput = button.previousElementSibling;
