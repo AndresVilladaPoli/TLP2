@@ -189,6 +189,95 @@ button:hover, .btn:hover {
     line-height: 1.5;
 }
 
+/* Sección de Comentarios */
+.comentarios-section {
+    margin-top: 15px;
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comentarios-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+/* Input de comentario */
+.comentario-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.comentario-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 4px rgba(0, 128, 0, 0.3);
+}
+
+/* Botón de agregar comentario */
+.btn.btn-primary {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn.btn-primary:hover {
+    background-color: #2e8b57;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Lista de comentarios */
+.comentarios-list {
+    margin-top: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.comentarios-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comentarios-list li {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333333;
+    font-size: 0.95em;
+    border-radius: 4px;
+    background-color: #fefefe;
+    transition: background-color 0.3s;
+}
+
+.comentarios-list li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.comentarios-list li:hover {
+    background-color: #f1f1f1;
+}
+
 
 /* Estilos para la página Mi Perfil */
 
