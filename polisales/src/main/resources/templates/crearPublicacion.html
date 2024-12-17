@@ -1,53 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:schema="http://schema.org">
 <head>
     <meta charset="UTF-8">
     <title th:text="${title}">Crear Publicación</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-    <header>
+<body schema:WebPage schema:name="Crear Publicación" schema:about="https://polisales.com">
+    <header schema:mainEntity>
         <!-- Banner con carrusel de imágenes -->
-        <div class="banner">
+        <div class="banner" schema:CreativeWork schema:headline="Carrusel de Imágenes">
             <div class="carousel">
-                <img th:each="image : ${carouselImages}" 
-                     th:src="@{/images/{image}(image=${image})}" 
-                     class="carousel-image" 
-                     alt="Imagen de carrusel">
+                <img th:each="image : ${carouselImages}"
+                     th:src="@{/images/{image}(image=${image})}"
+                     class="carousel-image"
+                     alt="Imagen de carrusel" schema:image />
             </div>
-            <h1 th:text="${title}">Crear Publicación</h1>
+            <h1 th:text="${title}" schema:name>Crear Publicación</h1>
         </div>
 
         <!-- Navegación -->
-        <nav class="navbar">
+        <nav class="navbar" schema:WebPageElement schema:role="navigation">
             <ul>
-                <li><a th:href="@{/}">Publicaciones</a></li>
-                <li><a th:href="@{/misPublicaciones}">Mis Publicaciones</a></li>
-                <li><a th:href="@{/publicaciones/crear}">Crear Publicación</a></li>
-                <li><a th:href="@{/miPerfil}">Mi Perfil</a></li>
-                <li><a th:href="@{/logout}">Cerrar sesión</a></li>
+                <li><a th:href="@{/}" schema:url>Publicaciones</a></li>
+                <li><a th:href="@{/misPublicaciones}" schema:url>Mis Publicaciones</a></li>
+                <li><a th:href="@{/publicaciones/crear}" schema:url>Crear Publicación</a></li>
+                <li><a th:href="@{/miPerfil}" schema:url>Mi Perfil</a></li>
+                <li><a th:href="@{/logout}" schema:url>Cerrar sesión</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main schema:mainContentOfPage>
         <div class="content">
-            <h2>Crear una nueva publicación</h2>
+            <h2 schema:headline>Crear una nueva publicación</h2>
             <!-- Formulario -->
-            <form id="publicationForm" class="publication-form" th:action="@{/api/publicaciones}" method="post" enctype="multipart/form-data">
-                <div class="form-group">
+            <form id="publicationForm" class="publication-form" schema:Action schema:target th:action="@{/api/publicaciones}" method="post" enctype="multipart/form-data">
+                <div class="form-group" schema:PropertyValue schema:propertyID="title">
                     <label for="title">Título:</label>
-                    <input type="text" id="title" name="titulo" placeholder="Ingrese el título de la publicación" required>
+                    <input type="text" id="title" name="titulo" placeholder="Ingrese el título de la publicación" required schema:value />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" schema:PropertyValue schema:propertyID="description">
                     <label for="description">Descripción:</label>
-                    <textarea id="description" name="contenido" placeholder="Escriba una descripción para la publicación" required></textarea>
+                    <textarea id="description" name="contenido" placeholder="Escriba una descripción para la publicación" required schema:value></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" schema:PropertyValue schema:propertyID="category">
                     <label for="category">Categoría:</label>
-                    <select id="category" name="categoria" required>
+                    <select id="category" name="categoria" required schema:value>
                         <option value="" disabled selected>Seleccione una categoría</option>
                         <option value="Servicio">Servicio</option>
                         <option value="Solicitud">Solicitud</option>
@@ -56,12 +56,12 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" schema:PropertyValue schema:propertyID="image">
                     <label for="image">Imagen:</label>
-                    <input type="file" id="image" name="imagen" accept="image/*">
+                    <input type="file" id="image" name="imagen" accept="image/*" schema:value />
                 </div>
 
-                <button type="submit" class="btn">Publicar</button>
+                <button type="submit" class="btn" schema:Action schema:actionStatus="CompletedActionStatus">Publicar</button>
             </form>
         </div>
     </main>

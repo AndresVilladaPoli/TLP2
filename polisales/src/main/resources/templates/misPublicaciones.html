@@ -1,47 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${title}">Página Principal - Blog</title>
+    <title th:text="${title}">Mis Publicaciones</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
+<body vocab="http://schema.org/" typeof="WebPage">
     <!-- Banner con carrusel de imágenes -->
     <header>
         <div class="banner">
-            <div class="carousel">
+            <div class="carousel" property="image">
                 <img th:each="image : ${carouselImages}"
                      th:src="@{/images/{image}(image=${image})}"
                      class="carousel-image"
                      alt="Imagen de carrusel">
             </div>
-            <h1>Bienvenido a POLIsales</h1>
+            <h1 property="name">Mis Publicaciones</h1>
         </div>
-
         <!-- Navegación -->
-        <nav class="navbar">
+        <nav class="navbar" property="breadcrumb">
             <ul>
-                <li><a th:href="@{/}">Publicaciones</a></li>
-                <li><a th:href="@{/misPublicaciones}">Mis Publicaciones</a></li>
-                <li><a th:href="@{/crear}">Crear Publicación</a></li>
-                <li><a th:href="@{/miPerfil}">Mi Perfil</a></li>
-                <li><a th:href="@{/logout}">Cerrar sesión</a></li>
+                <li><a th:href="@{/}" property="url">Publicaciones</a></li>
+                <li><a th:href="@{/misPublicaciones}" property="url">Mis Publicaciones</a></li>
+                <li><a th:href="@{/crear}" property="url">Crear Publicación</a></li>
+                <li><a th:href="@{/miPerfil}" property="url">Mi Perfil</a></li>
+                <li><a th:href="@{/logout}" property="url">Cerrar sesión</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="content">
-            <h2>Publicaciones Recientes</h2>
+        <div class="content" property="mainEntity" typeof="ItemList">
+            <h2>Lista de Publicaciones</h2>
             <!-- Publicaciones -->
             <div class="publicaciones">
-                <div th:each="publicacion : ${publicaciones}" class="publicacion-card">
-                    <div class="publicacion-image" th:if="${publicacion.imagen != null}">
+                <div th:each="publicacion : ${publicaciones}" class="publicacion-card" property="itemListElement" typeof="BlogPosting">
+                    <div class="publicacion-image" th:if="${publicacion.imagen != null}" property="image">
                         <img th:src="@{/uploads/{imagen}(imagen=${publicacion.imagen})}" alt="Imagen de la publicación">
                     </div>
                     <div class="publicacion-info">
-                        <h3 th:text="${publicacion.titulo}">Título de la publicación</h3>
-                        <p th:text="${publicacion.contenido}">Contenido de la publicación</p>
+                        <h3 property="headline" th:text="${publicacion.titulo}">Título de la publicación</h3>
+                        <p property="articleBody" th:text="${publicacion.contenido}">Contenido de la publicación</p>
+                        <meta property="author" content="Usuario Actual">
+                        <meta property="datePublished" th:content="${publicacion.fechaPublicacion}">
                     </div>
                 </div>
             </div>
@@ -53,16 +54,13 @@
         let currentImageIndex = 0;
         const images = document.querySelectorAll(".carousel-image");
         const totalImages = images.length;
-
         function showNextImage() {
             images[currentImageIndex].style.display = "none"; // Oculta la imagen actual
             currentImageIndex = (currentImageIndex + 1) % totalImages; // Cambia al siguiente índice
             images[currentImageIndex].style.display = "block"; // Muestra la nueva imagen
         }
-
         // Muestra solo la primera imagen al cargar
         images.forEach((img, index) => img.style.display = index === 0 ? "block" : "none");
-
         // Cambia de imagen cada 3 segundos
         setInterval(showNextImage, 3000);
     </script>

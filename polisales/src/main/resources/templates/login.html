@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>POLIsales - Login</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-    <div class="login-page">
+<body vocab="http://schema.org/" typeof="WebPage">
+    <div class="login-page" property="mainEntity" typeof="LoginAction">
+        <!-- Encabezado del login -->
         <header class="login-header">
-            <h1>POLIsales</h1>
+            <h1 property="name">POLIsales</h1>
         </header>
+
         <div class="login-wrapper">
             <div class="login-container">
                 <h2>Iniciar Sesión</h2>
-                <form th:action="@{/login}" method="post">
+                <!-- Formulario de login -->
+                <form th:action="@{/login}" method="post" property="target">
                     <div class="form-group">
                         <label for="username">Usuario:</label>
-                        <input type="text" id="username" name="username" required>
+                        <input type="text" id="username" name="username" required 
+                               property="agent" typeof="Person">
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
@@ -26,8 +30,9 @@
                         <button type="submit">Ingresar</button>
                     </div>
                 </form>
+                <!-- Enlace para registro -->
                 <p class="register-text">
-                    ¿No tienes cuenta? <a th:href="@{/api/usuarios/registro}">Regístrate aquí</a>.
+                    ¿No tienes cuenta? <a th:href="@{/api/usuarios/registro}" property="potentialAction" typeof="RegisterAction">Regístrate aquí</a>.
                 </p>
             </div>
         </div>
