@@ -43,6 +43,7 @@
                         <p property="articleBody" th:text="${publicacion.contenido}">Contenido de la publicación</p>
                         <meta property="author" content="Usuario Actual">
                         <meta property="datePublished" th:content="${publicacion.fechaPublicacion}">
+                        <button type="button" class="btn-eliminar" onclick="eliminarPublicacion()">Eliminar Publicación</button>
                     </div>
                 </div>
             </div>
@@ -63,6 +64,10 @@
         images.forEach((img, index) => img.style.display = index === 0 ? "block" : "none");
         // Cambia de imagen cada 3 segundos
         setInterval(showNextImage, 3000);
+
+        function eliminarPublicacion() {
+            alert("Funcionalidad no disponible.");
+        }
     </script>
 </body>
 </html>

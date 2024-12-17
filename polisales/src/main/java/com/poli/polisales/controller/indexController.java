@@ -48,11 +48,26 @@ public class indexController {
         return "miPerfil";
     }
 
-    @GetMapping("/misPublicaciones")
+   /*  @GetMapping("/misPublicaciones")
     public String misPublicaciones(Model model) {
         model.addAttribute("title", "Mis Publicaciones");
         List<String> carouselImages = Arrays.asList("img1.jpg", "img2.jpg", "img3.jpg");
         model.addAttribute("carouselImages", carouselImages);
         return "misPublicaciones";
+    }*/
+
+    @GetMapping("/misPublicaciones")
+    public String  misPublicaciones(Model model) {
+        model.addAttribute("title", "Mis Publicaciones");
+
+        // Lista de imágenes para el carrusel
+        List<String> carouselImages = Arrays.asList("img1.jpg", "img2.jpg", "img3.jpg");
+        model.addAttribute("carouselImages", carouselImages);
+
+        // Obtener todas las publicaciones desde la base de datos
+        List<Publicacion> publicaciones = publicacionService.findAll();
+        model.addAttribute("publicaciones", publicaciones);
+
+        return "misPublicaciones";  
     }
 }
